@@ -1,0 +1,57 @@
+REPORTS_RENAME = {
+    "safetyreportid": "safetyreportid",
+    "safetyreportversion": "version",
+    "receiptdate": "receiptdate",
+    "transmissiondate": "transmissiondate",
+    "primarysourcecountry": "country",
+    "occurcountry": "occurcountry",
+    "reporttype": "reporttype",
+    "serious": "serious",
+    "seriousnesscongenitalanomali": "congenital_anomaly",
+    "seriousnessdeath": "death",
+    "seriousnessdisabling": "disabling",
+    "seriousnesshospitalization": "hospitalization",
+    "seriousnesslifethreatening": "lifethreatening",
+    "seriousnessother": "other_serious",
+    "fulfillexpeditecriteria": "fulfillexpeditecriteria",
+    "duplicate": "duplicate",
+    "reportduplicate": "reportduplicate",
+    "authoritynumb": "authoritynumb",
+    "companynumb": "companynumb",
+}
+ 
+DEMOGRAPHICS_RENAME = {
+    "safetyreportid": "safetyreportid",
+    "patientagegroup": "age_group",
+    "patientonsetage": "onset_age",
+    "patientonsetageunit": "onset_age_unit",
+    "patientsex": "sex",
+    "patientweight": "weight",
+}
+ 
+DRUG_RENAME = {
+    "safetyreportid": "safetyreportid",
+    "medicinalproduct": "medicinalproduct",
+    "activesubstancename": "active_substance",
+    "drugcharacterization": "drugcharacterization",
+    "drugindication": "drugindication",
+    "drugbatchnumb": "drugbatchnumb",
+    "drugadministrationroute": "administration_route",
+    "drugstructuredosagenumb": "dosage_amount",
+    "drugstructuredosageunit": "dosage_unit",
+    "drugstartdate": "start_date",
+    "drugenddate": "end_date",
+    "drugtreatmentduration": "duration",
+    "drugtreatmentdurationunit": "duration_unit",
+    "drugrecurreadministration": "drugrecurreadministration",
+    "drugrecuraction": "recurrence_action",
+    "actiondrug": "actiondrug",
+    "drugadditional": "drugadditional",
+}
+ 
+REACTION_RENAME = {
+    "safetyreportid": "safetyreportid",
+    "reactionmeddrapt": "reaction",
+    "reactionmeddraversionpt": "meddra_version",
+    "reactionoutcome": "outcome",
+}
