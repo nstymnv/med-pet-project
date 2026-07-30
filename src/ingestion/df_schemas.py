@@ -15,7 +15,8 @@ REPORTS_RENAME = {
     "seriousnessother": "other_serious",
     "fulfillexpeditecriteria": "fulfillexpeditecriteria",
     "duplicate": "duplicate",
-    "reportduplicate": "reportduplicate",
+    "duplicatenumb": "duplicate_numb",
+    "duplicatesource": "duplicate_source",
     "authoritynumb": "authoritynumb",
     "companynumb": "companynumb",
 }
