@@ -15,7 +15,7 @@ spark = (
         .master("local[*]")
         .config(
         "spark.jars.packages",
-        "com.databricks:spark-xml_2.12:0.17.0"
+        "com.databricks:spark-xml_2.12:0.17.0,org.postgresql:postgresql:42.7.3"
         )
         .getOrCreate()
         )
@@ -58,7 +58,8 @@ df_reports = df.select(
     col("seriousnessother"),
     col("fulfillexpeditecriteria"),
     col("duplicate"),
-    col("reportduplicate"),
+    col("reportduplicate.duplicatenumb"),
+    col("reportduplicate.duplicatesource"),
     col("authoritynumb"),
     col("companynumb"),
 )
@@ -119,6 +120,25 @@ df_reaction = df_reaction_exploded.select(
 )
 df_reaction = rename(df_reaction, REACTION_RENAME)
 
+df_reports.printSchema()
+df_demographics.printSchema()
 df_drug.printSchema()
+df_reaction.printSchema()
 
-df_drug.select("active_substance", "dosage_amount", "start_date" ).show(truncate=False)
+def write_to_db(df, schema, db_name):
+    (
+        df.write \
+        .format("jdbc") \
+        .option("url", "jdbc:postgresql://localhost:5432/faers_db") \
+        .option("dbtable", f"{schema}.{db_name}") \
+        .option("user", "spark_nstymnv") \
+        .option("password", "spark_ABC_nstymnv") \
+        .option("driver", "org.postgresql.Driver") \
+        .mode("overwrite") \
+        .save()
+        )
+
+write_to_db(df_reports, "raw", "reports")
+write_to_db(df_demographics, "raw", "demographics")
+write_to_db(df_drug, "raw", "drug")
+write_to_db(df_reaction, "raw", "reaction")
