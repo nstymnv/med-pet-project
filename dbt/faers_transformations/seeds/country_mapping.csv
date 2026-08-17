@@ -1,0 +1,184 @@
+raw_country,country_code,country_name
+USA,USA,United States
+US,USA,United States
+U.S.,USA,United States
+U.S.A.,USA,United States
+United States,USA,United States
+United States of America,USA,United States
+America,USA,United States
+CAN,CAN,Canada
+CA,CAN,Canada
+Canada,CAN,Canada
+GBR,GBR,United Kingdom
+GB,GBR,United Kingdom
+UK,GBR,United Kingdom
+U.K.,GBR,United Kingdom
+United Kingdom,GBR,United Kingdom
+Great Britain,GBR,United Kingdom
+England,GBR,United Kingdom
+Scotland,GBR,United Kingdom
+Wales,GBR,United Kingdom
+POL,POL,Poland
+PL,POL,Poland
+Poland,POL,Poland
+Polska,POL,Poland
+POLSKA,POL,Poland
+DEU,DEU,Germany
+DE,DEU,Germany
+Germany,DEU,Germany
+Deutschland,DEU,Germany
+FRA,FRA,France
+FR,FRA,France
+France,FRA,France
+ESP,ESP,Spain
+ES,ESP,Spain
+Spain,ESP,Spain
+España,ESP,Spain
+ITA,ITA,Italy
+IT,ITA,Italy
+Italy,ITA,Italy
+Italia,ITA,Italy
+NLD,NLD,Netherlands
+NL,NLD,Netherlands
+Netherlands,NLD,Netherlands
+Holland,NLD,Netherlands
+BEL,BEL,Belgium
+BE,BEL,Belgium
+Belgium,BEL,Belgium
+PRT,PRT,Portugal
+PT,PRT,Portugal
+Portugal,PRT,Portugal
+IRL,IRL,Ireland
+IE,IRL,Ireland
+Ireland,IRL,Ireland
+SWE,SWE,Sweden
+SE,SWE,Sweden
+Sweden,SWE,Sweden
+NOR,NOR,Norway
+NO,NOR,Norway
+Norway,NOR,Norway
+DNK,DNK,Denmark
+DK,DNK,Denmark
+Denmark,DNK,Denmark
+FIN,FIN,Finland
+FI,FIN,Finland
+Finland,FIN,Finland
+CHE,CHE,Switzerland
+CH,CHE,Switzerland
+Switzerland,CHE,Switzerland
+AUT,AUT,Austria
+AT,AUT,Austria
+Austria,AUT,Austria
+CZE,CZE,Czech Republic
+CZ,CZE,Czech Republic
+Czech Republic,CZE,Czech Republic
+Czechia,CZE,Czech Republic
+SVK,SVK,Slovakia
+SK,SVK,Slovakia
+Slovakia,SVK,Slovakia
+HUN,HUN,Hungary
+HU,HUN,Hungary
+Hungary,HUN,Hungary
+ROU,ROU,Romania
+RO,ROU,Romania
+Romania,ROU,Romania
+BGR,BGR,Bulgaria
+BG,BGR,Bulgaria
+Bulgaria,BGR,Bulgaria
+HRV,HRV,Croatia
+HR,HRV,Croatia
+Croatia,HRV,Croatia
+SVN,SVN,Slovenia
+SI,SVN,Slovenia
+Slovenia,SVN,Slovenia
+SRB,SRB,Serbia
+RS,SRB,Serbia
+Serbia,SRB,Serbia
+GRC,GRC,Greece
+GR,GRC,Greece
+Greece,GRC,Greece
+Ελλάδα,GRC,Greece
+TUR,TUR,Turkey
+TR,TUR,Turkey
+Turkey,TUR,Turkey
+Türkiye,TUR,Turkey
+RUS,RUS,Russia
+RU,RUS,Russia
+Russia,RUS,Russia
+Russian Federation,RUS,Russia
+UKR,UKR,Ukraine
+UA,UKR,Ukraine
+Ukraine,UKR,Ukraine
+BLR,BLR,Belarus
+BY,BLR,Belarus
+Belarus,BLR,Belarus
+LTU,LTU,Lithuania
+LT,LTU,Lithuania
+Lithuania,LTU,Lithuania
+LVA,LVA,Latvia
+LV,LVA,Latvia
+Latvia,LVA,Latvia
+EST,EST,Estonia
+EE,EST,Estonia
+Estonia,EST,Estonia
+AUS,AUS,Australia
+AU,AUS,Australia
+Australia,AUS,Australia
+NZL,NZL,New Zealand
+NZ,NZL,New Zealand
+New Zealand,NZL,New Zealand
+JPN,JPN,Japan
+JP,JPN,Japan
+Japan,JPN,Japan
+CHN,CHN,China
+CN,CHN,China
+China,CHN,China
+IND,IND,India
+IN,IND,India
+India,IND,India
+KOR,KOR,South Korea
+KR,KOR,South Korea
+South Korea,KOR,South Korea
+Republic of Korea,KOR,South Korea
+PRK,PRK,North Korea
+KP,PRK,North Korea
+North Korea,PRK,North Korea
+BRA,BRA,Brazil
+BR,BRA,Brazil
+Brazil,BRA,Brazil
+MEX,MEX,Mexico
+MX,MEX,Mexico
+Mexico,MEX,Mexico
+ARG,ARG,Argentina
+AR,ARG,Argentina
+Argentina,ARG,Argentina
+CHL,CHL,Chile
+CL,CHL,Chile
+Chile,CHL,Chile
+COL,COL,Colombia
+CO,COL,Colombia
+Colombia,COL,Colombia
+ZAF,ZAF,South Africa
+ZA,ZAF,South Africa
+South Africa,ZAF,South Africa
+EGY,EGY,Egypt
+EG,EGY,Egypt
+Egypt,EGY,Egypt
+ISR,ISR,Israel
+IL,ISR,Israel
+Israel,ISR,Israel
+SAU,SAU,Saudi Arabia
+SA,SAU,Saudi Arabia
+Saudi Arabia,SAU,Saudi Arabia
+ARE,ARE,United Arab Emirates
+AE,ARE,United Arab Emirates
+United Arab Emirates,ARE,United Arab Emirates
+SGP,SGP,Singapore
+SG,SGP,Singapore
+Singapore,SGP,Singapore
+HKG,HKG,Hong Kong
+HK,HKG,Hong Kong
+Hong Kong,HKG,Hong Kong
+TWN,TWN,Taiwan
+TW,TWN,Taiwan
+Taiwan,TWN,Taiwan

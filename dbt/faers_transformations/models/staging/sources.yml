@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: faers_db
+    description: "The FDA FAERS Adverse Events database"
+    database: faers_db 
+    schema: raw
+    tables:
+      - name: reports
+          description: "The FAERS reports table"
+      - name: demographics
+          description: "The patients' demographic data table"
+      - name: drug
+          description: "The complete medication information table"
+      - name: reaction
+          description: "The patients' reaction data table"
