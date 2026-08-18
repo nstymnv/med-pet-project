@@ -1,3 +1,8 @@
+{{ config(
+	materialized='table',
+	schema='staging'
+) }}
+
 with source as (
 	select * from {{ source('faers_db', 'drug') }}
 ),
@@ -70,9 +75,9 @@ final as (
 	a.administration_route,
 	t.unit_name as duration_unit
 	from standardized s
-	left join {{ ref(administration_route_mapping) }} a
+	left join {{ ref('administration_route_mapping') }} a
 	on s.administration_route = a.administration_route_code
-	left join {{ ref(time_unit_code_mapping)}} t
+	left join {{ ref('time_unit_code_mapping')}} t
 	on s.duration_unit = t.unit_code
 )
 select * from final

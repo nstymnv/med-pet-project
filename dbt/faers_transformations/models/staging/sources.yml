@@ -7,10 +7,10 @@ sources:
     schema: raw
     tables:
       - name: reports
-          description: "The FAERS reports table"
+        description: "The FAERS reports table"
       - name: demographics
-          description: "The patients' demographic data table"
+        description: "The patients' demographic data table"
       - name: drug
-          description: "The complete medication information table"
+        description: "The complete medication information table"
       - name: reaction
-          description: "The patients' reaction data table"
+        description: "The patients' reaction data table"

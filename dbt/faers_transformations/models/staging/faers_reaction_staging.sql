@@ -1,3 +1,8 @@
+{{ config(
+	materialized='table',
+	schema='staging'
+) }}
+
 with source as (
 	select * from {{ source('faers_db', 'reaction') }}
 ),

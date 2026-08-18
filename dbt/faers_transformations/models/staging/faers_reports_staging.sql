@@ -1,3 +1,8 @@
+{{ config(
+	materialized='table',
+	schema='staging'
+) }}
+
 with source as (
 	select * from {{ source('faers_db', 'reports') }}
 ),
@@ -34,18 +39,22 @@ standardized as(
 	receipt_date,
 	transmission_date,
 	source_country,
-	occurence_country,
+	occurrence_country,
 	report_type,
 	case
 		when serious = 1 then "yes"
-		when serious = 2 then "no",
+		when serious = 2 then "no"
+		end as serious,
 	congenital_anomaly,
 	death,
 	disabling,
 	hospitalization,
 	lifethreatening,
 	other_serious,
-	fulfill_expedit_criteria,
+	case
+		when fulfill_expedite_criteria = 1 then "identified"
+		when fulfill_expedite_criteria = 2 then "other"
+		end as fulfill_expedite_criteria,
 	duplicate,
 	duplicate_numb,
 	duplicate_source,
@@ -60,9 +69,9 @@ final as (
 	c.country_code as source_country,
 	c.country_code as occurence_country
 	from standardized s
-	left join country_mapping c
+	left join {{ ref('country_mapping') }} c
 	on c.country_code = s.source_country
-	left join country_mapping c
+	left join {{ ref('country_mapping') }} c
 	on c.country_cod = s.occurence_country
 )
 select * from final

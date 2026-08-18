@@ -39,7 +39,7 @@ df_reaction = extract_reaction(raw_data)
 #df_demographics.show()
 #df_drug.filter("drugindication IS NOT NULL").show()
 #df_reaction.show()
-df_reports.filter("lifethreatening IS NOT NULL").show()
+df_reports.filter(df_reports.safetyreportid == "10015347").show()
 
 # write_to_db(df_reports, "raw", "reports")
 # write_to_db(df_demographics, "raw", "demographics")

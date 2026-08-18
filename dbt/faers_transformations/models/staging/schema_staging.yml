@@ -1,0 +1,87 @@
+version: 2
+
+models:
+  - name: faers_demographics_staging
+    description: "Model for cleaning and transforming the FAERS demographics data"
+    columns:
+      - name: report_id
+        description: "The primary key for this table"
+        data_tests:
+          - not_null
+          - unique
+      - name: onset_age
+        description: "The age of the patient at the time of the adverse event"
+        data_tests:
+          - not_null
+
+  - name: faers_drug_staging
+    description: "Model for cleaning and transforming the FAERS drug data"
+    columns:
+      - name: report_id
+        description: "The primary key for this table"
+        data_tests:
+          - not_null
+          - unique
+      - name: medicinal_product
+        description: "The name of the medicinal product"
+        data_tests:
+          - not_null
+      - name: active_substance
+        description: "The active substance in the medicinal product"
+        data_tests:
+          - not_null
+      - name: drug_characterization
+        description: "The characterization of the drug (e.g., suspect, concomitant)"
+        data_tests:
+          - not_null
+
+  - name: faers_reaction_staging
+    description: "Model for cleaning and transforming the FAERS reaction data"
+    columns:
+      - name: report_id
+        description: "The primary key for this table"
+        data_tests:
+          - not_null
+          - unique
+      - name: reaction
+        description: "The MedDRA preferred term for the reaction"
+        data_tests:
+          - not_null
+      - name: outcome
+        description: "The outcome of the adverse event (e.g., recovered, not recovered)"
+        data_tests:
+          - not_null
+
+  - name: faers_reports_staging
+    description: "Model for cleaning and transforming the FAERS reports data"
+    columns:
+      - name: report_id
+        description: "The primary key for this table"
+        data_tests:
+          - not_null
+          - unique
+      - name: receipt_date
+        description: "The date the report was received"
+        data_tests:
+          - not_null
+      - name: transmission_date
+        description: "The date the report was transmitted"
+        data_tests:
+          - not_null
+      - name: source_country
+        description: "The country from which the report originated"
+        data_tests:
+          - not_null
+      - name: occurrence_country
+        description: "The country where the adverse event occurred"
+        data_tests:
+          - not_null
+      - name: serious
+        description: "Indicates whether the adverse event was serious"
+        data_tests:
+          - not_null
+      - name: fulfill_expedite_criteria
+        description: "Indicates whether the report fulfills expedite criteria"
+        data_tests:
+          - not_null
+      
