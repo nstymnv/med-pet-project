@@ -1,6 +1,7 @@
 from extract.spark import create_spark
 # from pathlib import Path
 # from extract.downloader import download_recent_faers
+# from config import sf_options
 from extract.scanner import extract_data
 
 from load.parser import (
@@ -39,9 +40,9 @@ df_reaction = extract_reaction(raw_data)
 #df_demographics.show()
 #df_drug.filter("drugindication IS NOT NULL").show()
 #df_reaction.show()
-df_reports.filter(df_reports.safetyreportid == "10015347").show()
+df_reports.filter("version IS NOT NULL").show()
 
-# write_to_db(df_reports, "raw", "reports")
+# write_to_db(df_reports, "REPORTS", sf_options)
 # write_to_db(df_demographics, "raw", "demographics")
 # write_to_db(df_drug, "raw", "drug")
 # write_to_db(df_reaction, "raw", "reaction")

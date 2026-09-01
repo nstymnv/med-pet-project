@@ -1,14 +1,9 @@
-from config import POSTGRES_URL, POSTGRES_USER, POSTGRES_PASSWORD
-
-def write_to_db(df, schema, db_name):
+def write_to_db(df, table_name, sf_options):
     (
-        df.write \
-        .format("jdbc") \
-        .option("url", POSTGRES_URL) \
-        .option("dbtable", f"{schema}.{db_name}") \
-        .option("user", POSTGRES_USER) \
-        .option("password", POSTGRES_PASSWORD) \
-        .option("driver", "org.postgresql.Driver") \
-        .mode("append") \
+        df.write
+        .format("net.snowflake.spark.snowflake")
+        .options(**sf_options)
+        .option("dbtable", table_name)
+        .mode("append")
         .save()
         )
