@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
 from pathlib import Path
 import os
+import re
 
 load_dotenv()
 
@@ -16,8 +17,13 @@ RAW_DATA_DIR = "data/raw"
 
 private_key = Path(
     os.getenv("SNOWFLAKE_PRIVATE_KEY_PATH")
-).read_bytes()
+).read_text()
 
+private_key = re.sub(
+    r"-*(BEGIN|END) PRIVATE KEY-*\n",
+    "",
+    private_key
+).replace("\n", "")
 
 sf_options = {
     "sfURL": f"{os.getenv('SNOWFLAKE_ACCOUNT')}.snowflakecomputing.com",

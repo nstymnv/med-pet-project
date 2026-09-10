@@ -1,0 +1,97 @@
+version: 2
+
+models:
+
+  - name: int_reports
+    description: >
+      Canonical FAERS report-level records with duplicate versions consolidated
+      into a single record per report_id.
+
+    columns:
+      - name: report_id
+        description: Unique FAERS safety report identifier.
+        tests:
+          - not_null
+
+      - name: version
+        description: Latest version of the FAERS report.
+
+      - name: receipt_date
+        description: Date the latest report information was received.
+
+      - name: transmission_date
+        description: Date the report was transmitted.
+
+      - name: duplicate_flag
+        description: Indicates whether the report has duplicate/version information.
+
+
+  - name: int_demographics
+    description: >
+      Consolidated demographic information for each FAERS report.
+
+    columns:
+      - name: report_id
+        description: FAERS safety report identifier.
+        tests:
+          - not_null
+
+      - name: age_group
+        description: Standardized patient age group.
+
+      - name: onset_age
+        description: Patient age at onset of the adverse event.
+
+      - name: age_unit
+        description: Unit used for onset age.
+
+      - name: sex
+        description: Standardized patient sex.
+
+      - name: weight_kg
+        description: Patient weight in kilograms.
+
+
+  - name: int_drugs
+    description: >
+      Deduplicated drug records associated with FAERS reports.
+      Multiple drugs can legitimately belong to the same report.
+
+    columns:
+      - name: report_id
+        description: FAERS safety report identifier.
+        tests:
+          - not_null
+
+      - name: medicinal_product
+        description: Standardized medicinal product name.
+
+      - name: active_substance
+        description: Active substance of the medicinal product.
+
+      - name: drug_characterization
+        description: Role of the drug in the adverse event report.
+
+      - name: drug_indication
+        description: Indication for which the drug was used.
+
+
+  - name: int_reactions
+    description: >
+      Deduplicated adverse reaction records associated with FAERS reports.
+      Multiple reactions can legitimately belong to the same report.
+
+    columns:
+      - name: report_id
+        description: FAERS safety report identifier.
+        tests:
+          - not_null
+
+      - name: reaction
+        description: Reported adverse reaction.
+
+      - name: meddra_version
+        description: MedDRA version associated with the reaction.
+
+      - name: outcome
+        description: Standardized outcome of the reported reaction.

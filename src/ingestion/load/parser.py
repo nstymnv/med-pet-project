@@ -37,6 +37,7 @@ def extract_reports(df):
 def extract_demographics(df):
     df_demographics = df.select(
          col("safetyreportid"),
+         col("safetyreportversion"),
          col("patient.patientagegroup"),
          col("patient.patientonsetage"),
          col("patient.patientonsetageunit"),
@@ -48,22 +49,26 @@ def extract_demographics(df):
 def extract_drug(df):
     df_drug_exploded = df.select(
         col("safetyreportid"),
+        col("safetyreportversion"),
         explode_outer(col("patient.drug")).alias("drug"),
     )
  
     df_drug_exploded = df_drug_exploded.select(
         col("safetyreportid"),
+        col("safetyreportversion"),
         col("drug"),
         explode_outer(col("drug.drugrecurrence")).alias("drugrecurrence"),
     )
  
     df_drug = df_drug_exploded.select(
         col("safetyreportid"),
+        col("safetyreportversion"),
         col("drug.medicinalproduct"),
         col("drug.activesubstance.activesubstancename"),
         col("drug.drugcharacterization"),
         col("drug.drugindication"),
         col("drug.drugbatchnumb"),
+        col("drug.drugauthorizationnumb"),
         col("drug.drugadministrationroute"),
         col("drug.drugstructuredosagenumb"),
         col("drug.drugstructuredosageunit"),
@@ -81,11 +86,13 @@ def extract_drug(df):
 def extract_reaction(df):
     df_reaction_exploded = df.select(
         col("safetyreportid"),
+        col("safetyreportversion"),
         explode_outer(col("patient.reaction")).alias("reaction"),
     )
  
     df_reaction = df_reaction_exploded.select(
         col("safetyreportid"),
+        col("safetyreportversion"),
         col("reaction.reactionmeddrapt"),
         col("reaction.reactionmeddraversionpt"),
         col("reaction.reactionoutcome"),

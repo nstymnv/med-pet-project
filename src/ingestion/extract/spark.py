@@ -6,8 +6,12 @@ def create_spark():
         .appName("FaersPipeline")
         .master("local[*]")
         .config(
-        "spark.jars.packages",
-        "com.databricks:spark-xml_2.12:0.17.0,org.postgresql:postgresql:42.7.3"
-        )
+    "spark.jars.packages",
+    ",".join([
+        "com.databricks:spark-xml_2.12:0.18.0",
+        "net.snowflake:spark-snowflake_2.12:3.2.2-spark_3.5",
+        "net.snowflake:snowflake-jdbc:4.3.3"
+    ])
+)
         .getOrCreate()
     )

@@ -12,6 +12,7 @@ from load.parser import (
 )
 
 from load.loader import write_to_db
+from config import sf_options
 # from config import RAW_DATA_DIR
 
 
@@ -40,9 +41,9 @@ df_reaction = extract_reaction(raw_data)
 #df_demographics.show()
 #df_drug.filter("drugindication IS NOT NULL").show()
 #df_reaction.show()
-df_reports.filter("version IS NOT NULL").show()
+#df_reports.filter("version IS NOT NULL").show()
 
-# write_to_db(df_reports, "REPORTS", sf_options)
-# write_to_db(df_demographics, "raw", "demographics")
-# write_to_db(df_drug, "raw", "drug")
-# write_to_db(df_reaction, "raw", "reaction")
+write_to_db(df_reports, "REPORTS", sf_options)
+write_to_db(df_demographics, "DEMOGRAPHICS", sf_options)
+write_to_db(df_drug, "DRUG", sf_options)
+write_to_db(df_reaction, "REACTION", sf_options)

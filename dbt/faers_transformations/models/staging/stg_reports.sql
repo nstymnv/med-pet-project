@@ -11,7 +11,7 @@ normalized as(
 	select
 	safetyreportid as report_id,
 	version,
-	try_to_date(to_varchar(receiptdate, 'YYYYMMDD') as receipt_date,
+	try_to_date(to_varchar(receiptdate), 'YYYYMMDD') as receipt_date,
 	try_to_date(to_varchar(transmissiondate), 'YYYYMMDD') as transmission_date,
 	country as source_country,
 	occurcountry as occurrence_country,
@@ -24,12 +24,14 @@ normalized as(
 	try_cast(lifethreatening as int) as lifethreatening,
 	try_cast(other_serious as int) as other_serious,
 	try_cast(fulfillexpeditecriteria as int) as fulfill_expedite_criteria,
-	try_cast(duplicate as int) as duplicate,
+	try_cast(duplicate as int) as duplicate_flag,
 	duplicate_numb,
 	duplicate_source,
 	authoritynumb as authority_number,
 	companynumb as company_number
 from source 
+where safetyreportid is not null
+	  and serious is not null
 ),
 
 standardized as(
@@ -42,8 +44,8 @@ standardized as(
 	occurrence_country,
 	report_type,
 	case
-		when serious = 1 then "yes"
-		when serious = 2 then "no"
+		when serious = 1 then 'yes'
+		when serious = 2 then 'no'
 		end as serious,
 	congenital_anomaly,
 	death,
@@ -52,26 +54,26 @@ standardized as(
 	lifethreatening,
 	other_serious,
 	case
-		when fulfill_expedite_criteria = 1 then "identified"
-		when fulfill_expedite_criteria = 2 then "other"
+		when fulfill_expedite_criteria = 1 then 'identified'
+		when fulfill_expedite_criteria = 2 then 'other'
 		end as fulfill_expedite_criteria,
-	duplicate,
+	duplicate_flag,
 	duplicate_numb,
 	duplicate_source,
 	authority_number,
 	company_number
 	from normalized
-).
+),
 
 final as (
 	select
-	s.* EXCLUDE source_country AND occurence_country,
-	c.country_code as source_country,
-	c.country_code as occurence_country
+	s.* EXCLUDE (source_country, occurrence_country),
+	c_source.country_code as source_country,
+	c_occurrence.country_code as occurrence_country
 	from standardized s
-	left join {{ ref('country_mapping') }} c
-	on c.country_code = s.source_country
-	left join {{ ref('country_mapping') }} c
-	on c.country_cod = s.occurence_country
+	left join {{ ref('country_mapping') }} c_source
+	on c_source.raw_country = s.source_country
+	left join {{ ref('country_mapping') }} c_occurrence
+	on c_occurrence.raw_country = s.occurrence_country
 )
 select * from final

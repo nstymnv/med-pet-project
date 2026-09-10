@@ -23,6 +23,7 @@ REPORTS_RENAME = {
  
 DEMOGRAPHICS_RENAME = {
     "safetyreportid": "safetyreportid",
+    "safetyreportversion": "version",
     "patientagegroup": "age_group",
     "patientonsetage": "onset_age",
     "patientonsetageunit": "onset_age_unit",
@@ -32,10 +33,12 @@ DEMOGRAPHICS_RENAME = {
  
 DRUG_RENAME = {
     "safetyreportid": "safetyreportid",
+    "safetyreportversion": "version",
     "medicinalproduct": "medicinalproduct",
     "activesubstancename": "active_substance",
     "drugcharacterization": "drugcharacterization",
     "drugindication": "drugindication",
+    "drugauthorizationnumb": "drugauthorizationnumb",
     "drugbatchnumb": "drugbatchnumb",
     "drugadministrationroute": "administration_route",
     "drugstructuredosagenumb": "dosage_amount",
@@ -52,6 +55,7 @@ DRUG_RENAME = {
  
 REACTION_RENAME = {
     "safetyreportid": "safetyreportid",
+    "safetyreportversion": "version",
     "reactionmeddrapt": "reaction",
     "reactionmeddraversionpt": "meddra_version",
     "reactionoutcome": "outcome",
